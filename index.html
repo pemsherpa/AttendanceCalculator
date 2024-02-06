@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Counter</title>
+</head>
+<style>
+    *{
+
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-top: 0%;
+    }
+    nav{
+        font-family: Georgia, 'Times New Roman', Times, serif;font-size: 30px;
+        background: #648880;
+        background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);
+        padding: 10px;
+        padding-bottom: 15px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    .container {
+        display: inline-block;
+        cursor: pointer;
+        align-content: end;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+    }
+
+    .dropdown { 
+    display: inline-block; 
+    position: relative; 
+    }
+    .dropdown button{
+        border: none;
+        background: none;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      font-size: 15px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .dropdown:hover .dropdown-content {
+      display: block;
+      background-color: whitesmoke;
+  }
+  .dropdown-content a {
+      display: block;
+      color: #000000;
+      padding: 5px;
+      text-decoration: none;
+  }
+  .dropdown-content a:hover {
+      color: #FFFFFF;
+      background-color: #00A4BD;
+  }
+    h1{
+        text-align: center;
+    }
+
+    fieldset{
+        margin: 20px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    fieldset legend{
+        align-self: center;
+    }
+
+    form {
+    display: flex;
+    transition: 0.2s ease-in;
+    box-sizing: content-box;
+    background: #27a081;
+    border-radius: 40px;
+    padding: 10px;
+    width: fit-content;
+    }
+
+    footer{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: inline-flex;
+
+    }
+    .footer p {
+        display: inline-block; /* Make <p> elements appear in the same line */
+        margin: 0 10px; /* Adjust spacing between <p> elements as needed */
+        margin-top: 15px;
+    }
+    hr{
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    @media only screen and (max-width: 600px) {
+    .detail {
+        padding: 10px;
+    }
+
+    fieldset {
+        padding: 10px;
+    }
+
+    form {
+        display: block;
+        margin: 10px 0;
+    }
+}
+</style>
+<body>
+    <nav>
+        <center>ATTENDANCE CALCULATOR.</center>
+        <div class="dropdown">
+            <button><div class="container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+              
+              <script>
+              function myFunction(x) {
+                x.classList.toggle("change");
+              }
+              </script></button>
+            <div class="dropdown-content">
+                <a rel="GITHUB" target="_blank" href="https://github.com/pemsherpa">GITHUB</a>
+                <a rel="LINKEDIN" target="_blank" href="https://www.linkedin.com/in/pema-sherpa-b8aa61215/">LINKEDIN</a>
+                <a rel="PORTFOLIO" target="_blank" href="https://pemsherpa.github.io/Portfolio/">PORTFOLIO</a>
+            </div>
+        </div>
+    </nav>
+    <fieldset><legend><h1><center>ENTER YOU DATA</center></h1></legend>
+    
+    <p style="margin-bottom: 5px;margin-left: 30%;">Enter number of present lectures:<input type="text" name="present" id="present" placeholder="present days"></p>
+    <p style="margin-bottom: 5px;margin-left: 30%;">Enter total number of lectures:<input type="text" name="total" id="total" placeholder="total days"></p>
+    <button onclick="calculateAndDisplay()" style="margin-left: 35%;margin-bottom: 20px;">Calculate Percentage</button>
+    <p id="result"></p>
+    <div id="output"></div>
+
+    <script>
+        // Function to calculate percentage and display result
+        function calculateAndDisplay() {
+            // Get present and total days input values
+            let presentDays = parseInt(document.getElementById('present').value);
+            let totalDays = parseInt(document.getElementById('total').value);
+
+            // Calculate percentage
+            let percentage = calculatePercentage(presentDays, totalDays);
+
+            // Display result
+            document.getElementById('result').innerText = percentage;
+        }
+
+        // Function to calculate percentage
+        function calculatePercentage(present, total) {
+            if (isNaN(present) || isNaN(total)) {
+                return "Please enter valid numbers.";
+            }
+
+            // Check if totalDays is not zero
+            if (total === 0) {
+                return "Total days cannot be zero.";
+            }
+
+            // Calculate percentage
+            let percentage = (present / total) * 100;
+
+            return "Percentage: " + percentage.toFixed(2) + "%";
+        }
+    </script>
+    </fieldset>
+    <hr>
+    <section class="container" style="margin-bottom: 50px;">
+        <div class="main">
+            <div class="detail">
+                
+                <fieldset style="border-radius: 40px;padding-top: 10px;padding-left: 35px;padding-bottom: 10px;">
+                    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;margin-bottom: 10px;">Let's Get in Touch 🌻.</h3>
+                    <p style="margin-bottom: 30px;">Hey there 🌻, I am available for full-time or freelance projects, whether they are remotely or on-site in India , I'd love to hear from you.</p>
+                        <form style="display: inline;margin-right: 20px;margin-left: 100px;">ptssherpa5@gmail.com</form>
+                        <form style="display: inline;margin-right: 20px;text-decoration: none;"><a href="https://www.linkedin.com/in/pema-sherpa-b8aa61215/" style="text-decoration: none;color: inherit;">Linkedin</a></form>
+                        <form style="display: inline;margin-right: 20px;text-decoration: none;"><a href="resume.html" style="text-decoration: none;color: inherit;">Resume</a></form>
+                        <form style="display: inline;"><a href="about.html" style="text-decoration: none;color: inherit;">About</a></form>
+                      </p>
+                      <p><pre>          </pre></p>
+                      <p><pre>          </pre></p>
+                      <p><pre>          </pre></p>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <div class="footer">
+        <div class="firstline" style="text-align: center;margin-bottom: 15px;">
+            <p><strong>LEARN.</strong></p>
+            <p style="font-size: xx-large;">|</p>
+            <p><strong>TRAVEL.</strong></p>
+            <p style="font-size: xx-large;">|</p>
+            <p><strong>ANALYZE.</strong></p>
+        </div>
+        <div class="secondline" style="text-align: center;font-family: Georgia, 'Times New Roman', Times, serif;text-decoration: underline ;">
+            Whatever the mind of man can conceive and believe, it can achieve.
+        </div>
+        <div class="thirdline" style="font-size: 10px;margin-bottom: 30px;text-align: center;margin-top: 15px;">
+            Copyright &copy 2024 Pema Tshering Sherpa. All Rights Reserved
+        </div>
+    </div>
+</body>
+</html>
